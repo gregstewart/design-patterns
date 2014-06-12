@@ -28,10 +28,23 @@ addMethod(Grid.prototype, "addCell", function(x, y, cell){
     this.cells[x][y] = cell;
 });
 
+addMethod(Grid.prototype, "addCell", function(coordinates, cell){
+    this.newCells.push({coordinate: coordinates, cell: cell});
+
+});
+
 addMethod(Grid.prototype, "fetchCell", function(x, y){
     return this.cells[x][y];
 });
 
+addMethod(Grid.prototype, "fetchCell", function(coordinates){
+    return this.findCell(coordinates);
+});
+
 addMethod(Grid.prototype, "isEmpty", function(x, y){
     return this.cells[x][y] == null;
+});
+
+addMethod(Grid.prototype, "isEmpty", function(coordinates){
+    return this.findCell(coordinates) == null;
 });
