@@ -1,3 +1,14 @@
+// addMethod - By John Resig (MIT Licensed)
+function addMethod(object, name, fn){
+    var old = object[ name ];
+    object[ name ] = function(){
+        if ( fn.length == arguments.length )
+            return fn.apply( this, arguments );
+        else if ( typeof old == 'function' )
+            return old.apply( this, arguments );
+    };
+}
+
 function Grid() {
     this.cells = [[]];
     this.newCells = [];
@@ -13,26 +24,14 @@ function Grid() {
     };
 }
 
-Grid.prototype.addCell = function (x, y, cell) {
-    if(arguments.length > 2 && !isNaN(x)) {
-        this.cells[x][y] = cell;
-    } else {
-        this.newCells.push({coordinate: x, cell: y});
-    }
-};
+addMethod(Grid.prototype, "addCell", function(x, y, cell){
+    this.cells[x][y] = cell;
+});
 
-Grid.prototype.fetchCell = function (x, y) {
-    if(arguments.length > 1 && !isNaN(x)) {
-        return this.cells[x][y];
-    } else {
-        return this.findCell(x);
-    }
-};
+addMethod(Grid.prototype, "fetchCell", function(x, y){
+    return this.cells[x][y];
+});
 
-Grid.prototype.isEmpty = function (x, y) {
-    if(arguments.length > 1 && !isNaN(x)) {
-        return this.cells[x][y] == null;
-    } else {
-        return this.findCell(x) == null;
-    }
-};
+addMethod(Grid.prototype, "isEmpty", function(x, y){
+    return this.cells[x][y] == null;
+});
