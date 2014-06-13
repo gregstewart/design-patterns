@@ -11,8 +11,8 @@
     "url": "git@github.com:gregstewart/jasmine-setup.git"
   },
   "author": "Greg Stewart",
-  "license": "BSD",
-  "readmeFilename": "README.markdown",
+  "license": "MIT",
+  "readmeFilename": "README.md",
   "gitHead": "2b361df691c0e66d1ff986f3143e943c86f30e2a",
   "devDependencies": {
     "grunt": "~0.4.2",
