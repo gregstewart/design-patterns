@@ -17,8 +17,7 @@ Grid.prototype.fetchCell = function (x, y) {
 
 Grid.prototype.isEmpty = function (x, y) {
     return this.cells[x][y] == null;
-};
-```
+};```
 
 In the example on the blog post, the x and y parameters were moved into a Coordinate object and the methods in question simply overloaded. However we don't have this luxury in JavaScript. The simplest thing to do would be to check the arguments being passed into the individual methods, so here's what that might look like:
 
@@ -60,8 +59,7 @@ Grid.prototype.isEmpty = function (x, y) {
     } else {
         return this.findCell(x) == null;
     }
-};
-```
+};```
 
 Not exactly elegant, but it works. While looking into options for method overloading I found [this post by John Resig](http://ejohn.org/blog/javascript-method-overloading/). Using his approach here's what the original Grid class would look like:
 
@@ -91,10 +89,9 @@ addMethod(Grid.prototype, "fetchCell", function(x, y){
 
 addMethod(Grid.prototype, "isEmpty", function(x, y){
     return this.cells[x][y] == null;
-});
-```
+});```
 
-So let's go ahead and refactor the methods to take an object:
+So let's go ahead and refactor the object to expand the interface and also take an object:
 
 ```js:Grid.js
 // addMethod - By John Resig (MIT Licensed)
@@ -146,5 +143,5 @@ addMethod(Grid.prototype, "isEmpty", function(x, y){
 
 addMethod(Grid.prototype, "isEmpty", function(coordinates){
     return this.findCell(coordinates) == null;
-});
-```
+});```
+
