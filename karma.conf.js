@@ -6,10 +6,13 @@ module.exports = function (config) {
     basePath: './',
 
     // frameworks to use
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'mocha', 'chai', 'sinon'],
 
     plugins: [
       'karma-jasmine',
+      'karma-mocha',
+      'karma-chai',
+      'karma-sinon',
       'karma-coverage',
       'karma-phantomjs-launcher'
     ],
