@@ -7,6 +7,7 @@ describe('Grade', function() {
 
         it('returns true if grade is passing', function() {
             grade1 = new Grade(0.8);
+            console.log(grade1);
             expect(grade1.isPassing()).to.be(true);
         });
 

@@ -20,6 +20,7 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       'lib/jquery-1.9.1.min.js',
+      'lib/underscrore.js',
       'helper/SpecHelper.js',
       {pattern: 'src/**/*.js'},
       {pattern: 'spec/**/*.js'}

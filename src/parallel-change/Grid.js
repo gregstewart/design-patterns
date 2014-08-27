@@ -30,7 +30,6 @@ addMethod(Grid.prototype, "addCell", function(x, y, cell){
 
 addMethod(Grid.prototype, "addCell", function(coordinates, cell){
     this.newCells.push({coordinate: coordinates, cell: cell});
-
 });
 
 addMethod(Grid.prototype, "fetchCell", function(x, y){
